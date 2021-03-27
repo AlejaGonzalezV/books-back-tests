@@ -1,5 +1,6 @@
 const axios = require('axios');
-const { expect } = require('chai');
+const { expect, assert } = require('chai');
+const chai = require('chai');
 
 const url = "https://cicd-books-back.herokuapp.com/books";
 const book = {
@@ -34,3 +35,16 @@ describe("Given a created book", () =>{
 
     })
 })
+
+describe("When user wants to delete a book with an incorrect id", () =>{
+
+    it('Then should return a 500 status error', (done) => {
+        axios.delete(`${url}/noid`).catch(function (error) {
+            const status = error.response.status;
+            expect(status).eql(500);
+        done()
+      });
+    });
+    
+    
+});

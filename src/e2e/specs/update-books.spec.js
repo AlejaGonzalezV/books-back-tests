@@ -7,6 +7,10 @@ const book = {
     "author": "Antoine de Saint-Exupéry"
 }
 
+const badBook = {
+    "name": "The little prince"
+}
+
 describe("Given a created", () =>{
     before(async()=>{
         oldBook = await axios.post(url, book);
@@ -21,6 +25,19 @@ describe("Given a created", () =>{
             console.log("Error removing data");
         }
     })
+
+    describe("When the user wants to edit a book without a field", () =>{
+
+        it('Then should return a 500 status error', (done) => {
+            axios.put(url+"/"+oldBook.data.id, badBook).catch(function (error) {
+                const status = error.response.status;
+                expect(status).eql(500);
+            done()
+          });
+        });
+        
+        
+    });
 
     describe("When the user wants to update the book", () =>{
         before(async()=>{

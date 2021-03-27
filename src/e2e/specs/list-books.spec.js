@@ -14,12 +14,7 @@ describe("When the user wants to list books", () => {
         expect(response.status).eql(200);
     });
 
-    // it("Then it should return a list with at least one element", ()=>{
-    //     const book = response.data
-    //     expect(book.length).to.be.greaterThan(0);
-    // })
-
-    it("Then it should return a list with at least one element and that book must have id, name and author", ()=>{
+    it("Then it should return a list with at least one element and that book should have id, name and author", ()=>{
         
         book = response.data
         expect(book.length).to.be.greaterThan(0);

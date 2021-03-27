@@ -7,8 +7,13 @@ const book = {
     "author": "Antoine de Saint-Exupéry"
 }
 
+const badBook = {
+    "name": "The little prince"
+}
+
 describe ("When the user wants to create a book", () =>{
     before(async()=>{
+
         oldList = await axios.get(url);
         response = await axios.post(url, book);
         newList = await axios.get(url);
@@ -42,4 +47,17 @@ describe ("When the user wants to create a book", () =>{
     it("Then it should return a list with the length increased by 1 element", ()=>{
         expect(newList.data.length).eql(oldList.data.length + 1);
     })
-})
+});
+
+describe("When the user wants to create a book without a field", () =>{
+
+    it('Then should return a 500 status error', (done) => {
+        axios.post(url, badBook).catch(function (error) {
+            const status = error.response.status;
+            expect(status).eql(500);
+        done()
+      });
+    });
+    
+    
+});
