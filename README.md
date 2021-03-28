@@ -12,26 +12,26 @@ All the test cases are located at e2e/specs/**
 
 Following test cases are covered:
 
-- Tests on list-books.specs.js
+- Tests on list-books.spec.js
 
   - Tests when user wants to list all the books 
   - Asserts fields expected are retrieved
   
-- Tests on create-books.specs.js
+- Tests on create-books.spec.js
   
   - Creates a new book and asserts book is created with the right fields
   - Lists books before create new one and after it, compares the lists length
   - Test what happen when user tries to register a book without a field
   - After run the tests, deletes the data created 
 
-- Tests on edit-books.specs.js
+- Tests on edit-books.spec.js
 
   - Creates a new book
   - Updates the created book and asserts new values have been changed in the existing book
   - Tests what happen when user tries to edit a book without a field
   - After run the tests, deletes the data created 
  
-- Tests on delete-books.specs.js
+- Tests on delete-books.spec.js
 
   - Creates a new book
   - Deletes the new book and asserts the book is not listed
